@@ -88,7 +88,7 @@ p.exl {
        <h3 id="Introduction">Introduction</h3> 
 
     <p class="ex1">
-<pre>
+<pre id="Introduction_InText">
           The automobile industry has undergone major milestones since the introduction of the internal combustion engine; the 
   ICE (internal combustion engine) became the dominant powertrain system for automobiles in the 20th century, but this changed as 
   we enter the 21st. With decarbonization being one of the top priorities in transportation, car manufacturers are constantly trying 
@@ -109,7 +109,7 @@ p.exl {
        <h3 id="Analysis and Discussion">Analysis and Discussion</h3> 
 
   <p class="ex1">
-    <pre>
+    <pre id="Analysis_InText">
         There are currently three types of vehicles that incorporates hydrogen fuel, two of which are completely hydrogen powered, FCEV and
   HICEV (hydrogen internal combustion engine vehicle), while the remaining one includes both hydrogen and a battery <a href="#Lyfe">(Lhyfe Heroes, 2024)</a>. FCEV
   converts chemical energy to electrical energy via redox reaction in a fuel cell. Unlike a typical ICE, which releases greenhouse gases,
@@ -117,11 +117,11 @@ p.exl {
   hand, is an altered version of the typical ICE; its functionality remains the same as the ICE, but injects hydrogen gas instead of petrol.
   Although not as clean as an HFC, the byproducts from HICE are water vapour and small amounts of NOx, which can be "lowered by cooling the
   combustion environment using techniques such as water injection, exhaust gas recirculation, or using liquid hydrogen" <a href="#nejat">(Nejat Verziroglu, Sherif and Barbir, 2005)</a>.
-</pre>
+
 </p>
 
     <p class="ex1">
-    <pre>
+    
       
         Both HICEV and FCEV are significantly cleaner alternatives than the traditional ICE. However, HICEV is preferred by car manufacturers 
   as the fundamental engine design remains largely unchanged when compared to an ICE <a href="#goyal">(Goyal et al., 2024)</a>. In addition, the wide flammability 
@@ -130,10 +130,10 @@ p.exl {
   besides that it is completely clean during operation, it is also faster to recharge an FCEV, which is a major advantage against electric cars, 
   since it usually takes between “30 minutes and several hours to charge” <a href="#TWI">(TWI, 2021)</a>. Despite limited access to hydrogen fuel stations, there 
   is an increase in sales of hydrogen vehicles, from 4,280 in 2017 to 14,451 in 2023, over three times the sales volume globally <a href="#SNE">(SNE Research. 2024)</a>.
-</pre>
+
 </p>
         <p class="ex1">
-    <pre>
+  
       
         Although hydrogen-powered vehicles provides many advantages that appeals to consumers, there are downsides which may leave people hesitant 
   in making the purchase. For instance, hydrogen has a wide range of flammability, as addressed earlier, which increases fuel economy. However, 
@@ -142,12 +142,12 @@ p.exl {
   <a href="#Russu">(Russu, 2024)</a>. In addition, although hydrogen fuel is more efficient than gasoline, it is underwhelmed by electric cars which has an overall 
   efficiency of over 85%, whereas the most efficient HFC only reaches up to 65% <a href="#NRDC">(NRDC, 2019)</a>. As for HICE, it is only 20% more efficient than a 
   typical ICE, which is not considered as an efficient method of generating power <a href="#College">(College of the Desert, 2001)</a>. If there is a cost-effective 
-  method to store hydrogen fuel and minimize energy loss in chemical reactions and heat in an HFC  and HICE respectively, hydrogen fuel could be 
+  method to store hydrogen fuel and minimize energy loss in chemical reactions and heat in an HFC and HICE respectively, hydrogen fuel could be 
   the catalyst in reaching net zero emissions for vehicles.
-</pre>
+
 </p>
         <p class="ex1">
-    <pre>
+  
       
         This paper examined the extent to which hydrogen fuel is eligible as a fuel source in achieving net zero emission in vehicles. With benefits 
   and drawbacks from FCEVs and HICEVs discussed, it can be concluded that although the use of HICEV addresses the issue of greenhouse emissions, and 
@@ -159,9 +159,10 @@ p.exl {
   injuries or fatalities. After resolving storage and safety issues, the overall efficiency should be the main focus; if manufacturers could minimize 
   energy loss due to heat or chemical reactions in a HICE or fuel cell respectively, hydrogen fuel might completely replace a typical ICE while being 
   a strong competitor against electric vehicles in the future.
-</pre>
+
 </p>
 
+    </pre>
 Table 1: Data on cost and lifespan of bridge repairs
 
 <table>
@@ -379,5 +380,32 @@ button.addEventListener("click", changeColor);
     window.onload = getLastUpdatedTime;
 </script>
 
+  <p id="totalWordCount"></p>
+<hr>
+<script>
+  // Function to calculate and display word count for a specified section
+  function displayWordCount(sectionId, outputId) {
+    // Get the text content from the specified section
+    const text = document.getElementById(sectionId).textContent;
+    // Split text into words based on spaces and filter out any empty strings
+    const wordArray = text.trim().split(/\s+/);
+    // Count the words
+    const wordCount = wordArray.length;
+    // Return the word count for summing purposes
+    return wordCount;
+  }
+  // Function to calculate and display total word count from selected sections
+  function displayTotalWordCount() {
+    // Calculate word count for each section and accumulate the total
+    const IntroductionCount = displayWordCount("Introduction_InText");
+    const AnalysisCount = displayWordCount("Analysis_InText");
+    // Calculate the sum of all selected sections
+    const totalWordCount = IntroductionCount + AnalysisCount;
+    // Display the total word count
+    document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
+  }
+  // Run the function for specific sections and display total count when the page loads
+  window.onload = displayTotalWordCount;
+</script>
 </html>
 
